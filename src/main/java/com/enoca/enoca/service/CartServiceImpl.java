@@ -59,7 +59,6 @@ public class CartServiceImpl implements CartService {
 
             updateCart(cart);
 
-            // Update product stock count
             product.setProductStockCount(product.getProductStockCount() - quantity);
             productRepository.save(product);
         }
@@ -85,7 +84,6 @@ public class CartServiceImpl implements CartService {
 
                 updateCart(cart);
 
-                // Update product stock count
                 product.setProductStockCount(product.getProductStockCount() + quantity);
                 productRepository.save(product);
             }

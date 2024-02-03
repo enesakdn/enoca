@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
             for (ProductInCart productInCart : productsInCart) {
                 Product product = productInCart.getProduct();
 
-                // Ensure the product price is at the order date
+
                 double productPriceAtOrderDate = product.getProductPrice();
                 ProductInOrder productInOrder = new ProductInOrder();
                 productInOrder.setProduct(product);
@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
 
             orderRepository.save(purchaseOrder);
 
-            // Update product stock count
+
             for (ProductInCart productInCart : productsInCart) {
                 Product product = productInCart.getProduct();
                 int quantity = productInCart.getProductCount();
@@ -62,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
                 productRepository.save(product);
             }
 
-            // Empty the cart
+
             cart.getProducts().clear();
             cart.setProductCount(0);
             cart.setTotalPrice(0.0);
